@@ -34,9 +34,17 @@ var playerGetter = function (currentGamePlayers) {
 
 	var list = document.getElementById("players");
 
+<<<<<<< HEAD
 	$.getJSON( "/api/playerRoutes", function( data ) {
 		
 		var players = '<option>Choose a player for your game</option>';
+=======
+	$.getJSON( "http://localhost:7000/api/playerRoutes", function( data ) {
+
+		
+		var players = '<option>Choose a player for your game</option>';
+
+>>>>>>> 97c332fadb3045ea40d5b195a01ab748007441f3
 
 		for (var i = 0; i < data.length; i++) {
 			// if(currentGamePlayers.indexOf(data[i].handle) != -1 ){

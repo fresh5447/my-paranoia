@@ -2,7 +2,7 @@
   "name": "paranoia",
   "version": "1.0.0",
   "description": "A game of staggering degenceracy",
-  "author": "Davis Logan",
+  "author": "Zachary Warren", "Kelly Nash" "Davis Logan"
   "main": "js/server.js",
   "dependencies": {
     "bcrypt-nodejs" : "latest",

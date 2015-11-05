@@ -9,27 +9,38 @@
 	<div>
 		
 
+<<<<<<< HEAD
 			<form action="/api/playerRoutes/" method="POST" role="form">
 				<legend>Choose a Badass Handle</legend>
 
+=======
+>>>>>>> 97c332fadb3045ea40d5b195a01ab748007441f3
 			<form action="/api/playerRoutes" method="POST" role="form">
 				<legend>Choose a Handle</legend>
 
 			
 				<div class="form-group">
-					<label for="">handle</label>
-					<input type="text" class="form-control" name="handle" placeholder="Don't rush this...">
+					<label for="handle">handle</label>
+					<input type="text" class="form-control" name="handle" id="handle" placeholder="Don't rush this...">
 				</div>
+
+
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" class="form-control" name="email" id="email" value="<%=user.local.email%>" readonly>
+				</div>
+
+				
 			
                 <div class="form-group">
-                    <label for="">Agent Id Photo</label>
-                    <input type="text" class="form-control" name="pic">
+                    <label for="pic">Agent Id Photo</label>
+                    <input type="text" class="form-control" name="pic" id="pic">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 		
 	</div>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 </body>

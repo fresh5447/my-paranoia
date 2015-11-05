@@ -22,7 +22,7 @@ router.route('/')
 
  .post(function(req, res){
    var handle = req.body.handle;
-  
+   var email = req.body.email;
    var status = req.body.status;
    var target = req.body.target;
    var deceased = req.body.deceased;
