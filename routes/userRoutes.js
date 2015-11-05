@@ -1,4 +1,4 @@
-
+var mongoose = require('mongoose');
 
 module.exports = function(app, passport) {
 
@@ -38,6 +38,22 @@ module.exports = function(app, passport) {
             user : req.user
         });
     });
+    
+    app.get('/game/:id', isLoggedIn, function(req, res) {
+        console.log(req.params.id);
+        mongoose.model('Game').findById({
+           _id: req.params.id
+        }, function(err, game) {
+            if (err)
+                res.send(err);
+          
+            res.render('completeGame.ejs', {
+                user : req.user,
+                game : game
+            });
+        });   
+    });
+
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();

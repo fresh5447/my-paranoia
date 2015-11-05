@@ -28,7 +28,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
             
             console.log("New player named " + player + " added to game " + game.gameName);
             res.app.game = game;
-      // res.redirect('/completeGame');
+            // res.redirect('/completeGame');
       
       res.render('completeGame.ejs', {game : game});
        });
@@ -69,6 +69,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
    .delete(function(req, res) {
    	var player = req.body.player;
+    console.log(player + " is in this array!");
    	mongoose.model('Game').findById({
    		_id: req.params.id
    	}, function(err, game) {
@@ -78,9 +79,11 @@ router.use(bodyParser.urlencoded({ extended: true }))
    		if (index != -1){
    			game.players.splice(index, 1);
    			game.save();
-   			res.json({ message: 'Successfully deleted' });
+        console.log("This is coming from the route: we deleted " + player);
+   			res.json({ message: "We assassinated " + player})
 
    		} else {
+        console.log("player not there " + player);
    			res.json({ message: "player not there!"})
    		}
 

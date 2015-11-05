@@ -1,49 +1,60 @@
 <html>
+
 <head>
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
 	<title>Complete Your Game</title>
 </head>
+
 <body>
+	
 	<div>
-			
-			
-			<strong>Game Name</strong>: <%= game.gameName %><br>
-				
 
-			<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
+
+		<strong>Game Name</strong>: <%= game.gameName %><br>
+
+
+
+		<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
 			<div id="playerList">
-					
-				</div>
+			</div>
 
-				<label for="players">Guys</label>
-				<select id="players" name="players">
-					<option>Please choose a player</option>
-				</select>
+			<label for="players">Guys</label>
+			<select id="players" name="players">
+				<option>Please choose a player</option>
+			</select>
 
-				<div>
-					<h2>Players added to Game</h2>
-					<ul  id="selectedPlayers">
-						<% if (game.players) {
-							game.players.forEach(function(player) { %>
-							<li><%= player %></li><a>remove player</a>
-						<%})}%>
-					</ul>
-				<div>
 			
-				
-			
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
-
+			<button type="submit" class="btn btn-primary">Add Player</button>
+		</form>
 
 		
+
+
+		<div>
+			<h2>Players added to Game</h2>
+			<ul  id="selectedPlayers">
+				<% if (game.players) {
+					game.players.forEach(function(player) { %>
+					<li id="<%= player %>"><%= player %>
+
+						<button type="submit" onclick="deleteGuy('<%= game._id %>','<%= player %>')" class="btn btn-danger">
+							Remove Player
+						</button>
+
+					</li>
+
+					<%})}%>
+				</ul>
+
 	</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/js/pickplayers.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/js/pickplayers.js"></script>
+	<script type="text/javascript">playerGetter('<%= game._id %>')</script>
 
 </body>
 </html>

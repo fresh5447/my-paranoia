@@ -1,35 +1,61 @@
 
+var deleteGuy = function(gameid, guy){
+	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
+		console.log(gameid, guy, data);
+		var foundGuy = null;
+		for (var i = 0; i < data.length; i++) {	
+		  	if( data[i] === guy ) {
+				foundGuy = guy;
+			};
+		};
+		if (foundGuy != null) {
+			$.ajax({
+				url: "/api/gamePlayer/" + gameid,
+				type: 'DELETE',
+				dataType: 'json',
+				data: { "player": guy},
+				success: function(result) {
+        			console.log('Successfully removed ' + guy);	
+        			location.href = "/game/" + gameid;
+    			}
+			});
+		} else {
+			console.log("Couldn't find " + guy);
+		};	
+	});
+	playerGetter();
+};
+
 var activeArray = [];
 var allPlayers = [];
 var playersInGame = [];
 
-var playerGetter = function () {
+var playerGetter = function (currentGamePlayers) {
 
 	var list = document.getElementById("players");
 
-	$.getJSON( "http://localhost:7000/api/playerRoutes", function( data ) {
-<<<<<<< HEAD
-		console.log(data);
-		var players = '<option>Choose a guy for your game</option>';
-=======
+	$.getJSON( "/api/playerRoutes", function( data ) {
 		
 		var players = '<option>Choose a player for your game</option>';
->>>>>>> refs/remotes/origin/master
 
 		for (var i = 0; i < data.length; i++) {
-			players += '<option value="' + data[i].handle + '">' + data[i].handle + '</option>';
+			// if(currentGamePlayers.indexOf(data[i].handle) != -1 ){
+				players += '<option value="' + data[i].handle + '">' + data[i].handle + '</option>';
 
-			
-			allPlayers.push(data[i].handle);
+				allPlayers.push(data[i].handle);
+			// }
+
 		}
 		list.innerHTML = players;
 	
-});
+	});
 }
 
 playerGetter();
 
 
+
+// $('#players').on('click', function())
 // $('#players').on('change', function(event) {
 // 	var printOut = document.getElementById('selectedPlayers');
 // 	activeArray.push(event.target.value);

@@ -4,8 +4,6 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
-
-
 //url/api/blogs
 // /api/playerRoutes/
 router.route('/')
