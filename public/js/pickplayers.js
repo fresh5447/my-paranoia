@@ -8,13 +8,10 @@ var playerGetter = function () {
 	var list = document.getElementById("players");
 
 	$.getJSON( "http://localhost:7000/api/playerRoutes", function( data ) {
-<<<<<<< HEAD
-		console.log(data);
-		var players = '<option>Choose a guy for your game</option>';
-=======
+
 		
 		var players = '<option>Choose a player for your game</option>';
->>>>>>> refs/remotes/origin/master
+
 
 		for (var i = 0; i < data.length; i++) {
 			players += '<option value="' + data[i].handle + '">' + data[i].handle + '</option>';

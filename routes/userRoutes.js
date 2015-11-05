@@ -1,4 +1,4 @@
-
+var mongoose = require('mongoose');
 
 module.exports = function(app, passport) {
 
@@ -12,9 +12,17 @@ module.exports = function(app, passport) {
     });
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
+       
+       mongoose.model('Player').find({email: req.user.local.email}, function(err, player){
+            if(err){
+                console.log(err);
+            }
+            res.render('profile.ejs', {
+                user : req.user,
+                player : player
+            })
         });
+    
     });
     // COMPLETE PROFILE SECTION =========================
     app.get('/completeProfile', isLoggedIn, function(req, res) {
