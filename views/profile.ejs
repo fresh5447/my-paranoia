@@ -7,57 +7,44 @@
 </head>
 <body>
 	<div class="container box">
+		
 		<div class="row">
 			<div class="col-md-6">
-<<<<<<< HEAD
-			<img src="../images/spyTeam.png">
-=======
-			<img src="<%=player.pic%>">
->>>>>>> 97c332fadb3045ea40d5b195a01ab748007441f3
-		</div>
+				<img src="<%=player.pic%>">
+			</div>
 	
-		<div>
-			<ul>
-				<li><h1>Your Agent Profile</h1></li>
-				
-				<strong>email</strong>: <%= user.local.email %><br>
-				
-				
-
-			</ul>	
+			<div>
+				<ul>
+					<li><h1>Your Agent Profile</h1></li>
+					
+					<strong>email</strong>: <%= user.local.email %><br>
+				</ul>	
+			</div>
 		</div>
 	</div>
-	
 
-	
-
-	</div>
-
-	<div>
-
-		<div class="container box-two">
+	<div class="container box-two">
 		<div class="row">
 			<div class="col-md-6">
-			<img src="../images/spyTeam.png">
-		</div>
+				<img src="../images/spyTeam.png">
+			</div>
 	
-		<div>
-			<ul>
-				<h1>Game Console</h1>
-				<li>ID</li>
-				<div id="myGame"></div>
-
-				
-				<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
-
-				<a href="/logout" class="btn btn-default"><span class="fa fa-user"></span>Log Out</a>
-
-
-			</ul>	
+			<div>
+				<ul>
+					<h1>Game Console</h1>
+					<li>ID</li>
+					
+					<div id="myGame">
+					</div>
+	
+					<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
+	
+					<a href="/logout" class="btn btn-default"><span class="fa fa-user"></span>Log Out</a>
+	
+				</ul>	
+			</div>
 		</div>
 	</div>
-	<div> 
-</div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 

@@ -7,74 +7,41 @@
 </head>
 <body>
 	<div class="container">
+		<form action="/api/gameRoutes" class="navbar-form" method="post" id="gameForm" role="form">
+			<legend>Create Your Game</legend>
 		
-			<form action="/api/gameRoutes" class="navbar-form" method="post" id="gameForm" role="form">
-				<legend>Create Your Game</legend>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Your Handle</span>
+				
+				<input type="text" class="form-control" name="moderator" placeholder="">
+			</div>
 			
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1">Your Handle</span>
-					
-					<input type="text" class="form-control" name="moderator" placeholder="">
-				</div>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Name the Game</span>
+				<input type="text" class="form-control" name="gameName" placeholder="Name your game">
+			</div>
 
-				<!-- <input id="submit" onclick="getNumber()" type="submit" value="add player" /> -->
-				
-				
-				
-				
-
-				<!-- <input id="submit" type="submit" value="submit" /> -->
-				
-
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1">Name the Game</span>
-					<input type="text" class="form-control" name="gameName" placeholder="Name your game">
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1">Starting Date</span>
-					<input type="text" class="form-control" name="startTime" placeholder="When will the game begin?">
-				</div>
-
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1">Ending Date</span>
-					<input type="text" class="form-control" name="endTime" placeholder="When does the game end?">
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon" id="basic-addon1">Location</span>
-					<input type="text" class="form-control" name="location" placeholder="Where are you playing?">
-				</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 97c332fadb3045ea40d5b195a01ab748007441f3
-
-
-				
-
-
-<<<<<<< HEAD
-=======
-				<div>
-					<h2>Players Added to Game</h2>
-					<ul  id="selectedPlayers">
-					</ul>
-				<div>
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Starting Date</span>
+				<input type="text" class="form-control" name="startTime" placeholder="When will the gamebegin?">
+			</div>
 			
-
->>>>>>> 97c332fadb3045ea40d5b195a01ab748007441f3
-				
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
-		
-
-
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Ending Date</span>
+				<input type="text" class="form-control" name="endTime" placeholder="When does the game end?">
+			</div>
+			
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Location</span>
+				<input type="text" class="form-control" name="location" placeholder="Where are you playing?">
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
 	</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
-
 
 </body>
 </html>

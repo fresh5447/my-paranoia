@@ -1,7 +1,7 @@
 
 var deleteGuy = function(gameid, guy){
 	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
-		console.log(gameid, guy, data);
+		
 		var foundGuy = null;
 		for (var i = 0; i < data.length; i++) {	
 		  	if( data[i] === guy ) {
@@ -17,78 +17,47 @@ var deleteGuy = function(gameid, guy){
 				success: function(result) {
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;
+
     			}
 			});
 		} else {
 			console.log("Couldn't find " + guy);
 		};	
 	});
-	playerGetter();
+	
 };
 
-var activeArray = [];
-var allPlayers = [];
-var playersInGame = [];
 
-var playerGetter = function (currentGamePlayers) {
+var allPlayers = [];
+
+
+var playerGetter = function (gameid) {
 
 	var list = document.getElementById("players");
 
-<<<<<<< HEAD
-	$.getJSON( "/api/playerRoutes", function( data ) {
+	$.when( 
+		$.getJSON( "/api/playerRoutes/"), 
+		$.getJSON("/api/gamePlayer/" + gameid)
+	).then(
+
+		function( theplayers, gameplayers ) {
+			
 		
 		var players = '<option>Choose a player for your game</option>';
-=======
-	$.getJSON( "http://localhost:7000/api/playerRoutes", function( data ) {
 
-		
-		var players = '<option>Choose a player for your game</option>';
+		for (var i = 0; i < theplayers[0].length; i++) {
+			var p = theplayers[0][i].handle;
+			var g = gameplayers[0];
+			
+			if(g.indexOf(p) === -1 ){
+				players += '<option value="' + p + '">' + p + '</option>';
 
->>>>>>> 97c332fadb3045ea40d5b195a01ab748007441f3
-
-		for (var i = 0; i < data.length; i++) {
-			// if(currentGamePlayers.indexOf(data[i].handle) != -1 ){
-				players += '<option value="' + data[i].handle + '">' + data[i].handle + '</option>';
-
-				allPlayers.push(data[i].handle);
-			// }
+				allPlayers.push(p);
+			}
 
 		}
 		list.innerHTML = players;
 	
 	});
 }
-
-playerGetter();
-
-
-
-// $('#players').on('click', function())
-// $('#players').on('change', function(event) {
-// 	var printOut = document.getElementById('selectedPlayers');
-// 	activeArray.push(event.target.value);
-// 	var active = activeArray.map(function(e){
-// 		var selected = '<li>' + e + '</li>  <a>remove player</a>';
-// 		return selected;
-// 	})
-
-// 	var runningList = active.join('');
-// 	printOut.innerHTML = runningList;
-	
-
-// 	$.ajax({
-// 		url: '/api/gamePlayer/563a3b2ffe4ed89e8f48f2e1',
-// 		type: 'PUT',
-// 		dataType: 'json',
-// 		data: player,
-// 		success: function(result) {
-    
-//         	console.log('it works');
-//     }
-// });
-
-
-// });
-
-
 
