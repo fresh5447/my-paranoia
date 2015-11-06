@@ -58,23 +58,6 @@ var playerGetter = function (gameid) {
 	);
 }
 
-players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
+var players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
 
 
-var randomizer = function(array) {
-	var copy = array.slice();
-	var index = copy.length - 1;
-	var tempArray = [];
-
-	while ( index > 0 ) {
-		var randomIndex = Math.floor(Math.random()*index);
-		
-		if (tempArray[index] != copy[index]) {
-			tempArray.push(copy[randomIndex]);
-			index -= 1;
-		} else {
-			index = copy.length - 1;
-		}
-	};
-	return tempArray;
-};

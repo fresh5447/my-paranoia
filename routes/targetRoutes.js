@@ -4,22 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
-var targetsRandomized = function(players){
-	var result = [];
-	game.targets = [];
-	var remainingPlayers = players.slice();
-	for (var i = 0; i < players.length; i++) {
-		var index = Math.floor(Math.random()*remainingPlayers.length);
-		//start up an array of all players in the game that are left to assign
-		//pick someone randomly from the remainder
-		var player = remainingPlayers[index];
-		//assign said someone to the first person
-		game.targets.push(player);
-		//remove said someone from the remainder
-		remainingPlayers.slice(index, 1);
-	};
-	return result;
-};
+	
 
 router.route('/:id')
 
@@ -33,10 +18,30 @@ router.route('/:id')
 
            if (err)
                res.send(err); 
-           game.targets= targetsRandomized(game.players);
+           game.targets = targetsRandomized(game.players);
            game.save();
            res.render('completeGame.ejs', {game : game});
        });
    });
 
+var targetsRandomized = function(players){
+	var refCopy = players.slice();
+	var randCopy = refCopy.slice();
+	var randomizedArray = [];
+	for (var i = 0; i < refCopy.length; i++) {
+		var index = Math.floor(Math.random()*randCopy.length);
+		randomizedArray[i] =  randCopy[index];
+		randCopy.splice(index, 1);
+
+	};
+	var targets = [];
+	var oneLess = randomizedArray.length;
+	for (var i = 0; i < randomizedArray.length; i++) {
+		var newTarget = randomizedArray[(i + 1) % oneLess];
+		targets[players.indexOf(randomizedArray[i])] = newTarget;
+	};
+	return targets;
+};
+
 module.exports = router;
+
