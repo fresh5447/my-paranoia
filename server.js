@@ -20,6 +20,7 @@ var userModel = require('./models/user');
 var playerRoutes = require('./routes/playerRoutes');
 var gameRoutes = require('./routes/gameRoutes');
 var gamePlayer = require('./routes/gamePlayer');
+var targetRoutes = require('./routes/targetRoutes');
 
 
 
@@ -55,6 +56,8 @@ app.use('/api/playerRoutes', playerRoutes);
 app.use('/api/gameRoutes', gameRoutes);
 
 app.use('/api/gamePlayer', gamePlayer);
+
+app.use('/api/targetRoutes', targetRoutes);
 
 
 

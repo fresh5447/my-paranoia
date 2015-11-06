@@ -8,7 +8,9 @@ var gameSchema = new mongoose.Schema({
         startTime: String,
         endTime: String,
         location: String,
-        players: Array
+        players: Array,
+        targets: Array
+
     
 })
 

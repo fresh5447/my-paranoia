@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div>
+<div class="container">
 	<strong>Game Name</strong>: <%= game.gameName %><br>
 	<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
 		<div id="playerList">
@@ -18,24 +18,55 @@
 		<select id="players" name="players">
 			<option>Choose a player</option>
 		</select>	
-		<button type="submit" class="btn btn-primary">Add player</button>
+		<button type="submit" class="btn btn-primary">Add Player</button>
 	</form>
-
-	<div>
-		<h2>Players Added to Game</h2>
-		<ul id="selectedPlayers">
-			<% if (game.players) {
-				game.players.forEach(function(player) { %>
-				<li id="<%= player %>"><%= player %>
-
-					<button type="submit" onclick="deleteGuy('<%= game._id %>','<%= player %>')" class="btn btn-danger">
-						Remove Player
-					</button>
-				</li>
-			<%})}%>
-		</ul>
-	</div>
 </div>
+
+	<div class="container ">
+		<div class="row">
+			<h2>Players Added to Game</h2>
+			<div class="container">				
+				<div id="selectedPlayers">
+					<div class="row">
+						<div class="col-xs-1">
+						</div>
+						<div class="col-xs-2">
+							<h4>Agent Handle</h4>
+						</div>
+						<div class="col-xs-8">
+							<h4>Target Handle</h4>
+						</div>
+
+					</div>
+
+
+					<% if (game.players) {
+					game.players.forEach(function(player, index) { %>
+					<div class="row">
+					<button class="col-xs-1 remove-button" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
+						X
+					</button>
+
+				<div class="col-xs-2">
+					<%= player %> 	
+				</div>
+
+				<div class="col-xs-8">
+					<%= game.targets[index] %> 
+
+				</div>
+				</div>
+					<%})}%>
+				</div>
+			</div >
+			<form action=<%= "/api/targetRoutes/" + game._id %> method="POST"> 
+			<button type="submit" title="Start Gaming" class="btn btn-danger">
+						Start Hunting
+					</button>
+			</form>
+
+		</div>
+	</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/pickplayers.js"></script>

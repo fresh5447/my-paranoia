@@ -41,23 +41,40 @@ var playerGetter = function (gameid) {
 	).then(
 
 		function( theplayers, gameplayers ) {
-			
-		
-		var players = '<option>Choose a player for your game</option>';
+			var players = '<option>Choose a player for your game</option>';
 
-		for (var i = 0; i < theplayers[0].length; i++) {
-			var p = theplayers[0][i].handle;
-			var g = gameplayers[0];
-			
-			if(g.indexOf(p) === -1 ){
-				players += '<option value="' + p + '">' + p + '</option>';
+			for (var i = 0; i < theplayers[0].length; i++) {
+				var p = theplayers[0][i].handle;
+				var g = gameplayers[0];
 
-				allPlayers.push(p);
+				if(g.indexOf(p) === -1 ){
+					players += '<option value="' + p + '">' + p + '</option>';
+
+					allPlayers.push(p);
+				}
 			}
-
+			list.innerHTML = players;
 		}
-		list.innerHTML = players;
-	
-	});
+	);
 }
 
+players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
+
+
+var randomizer = function(array) {
+	var copy = array.slice();
+	var index = copy.length - 1;
+	var tempArray = [];
+
+	while ( index > 0 ) {
+		var randomIndex = Math.floor(Math.random()*index);
+		
+		if (tempArray[index] != copy[index]) {
+			tempArray.push(copy[randomIndex]);
+			index -= 1;
+		} else {
+			index = copy.length - 1;
+		}
+	};
+	return tempArray;
+};

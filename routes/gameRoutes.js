@@ -40,6 +40,7 @@ router.route('/')
   game.endTime= req.body.endTime;
   game.location= req.body.location;
   game.players= req.body.players;
+  game.targets= [];
 
   game.save( function(err) {
      if(err){

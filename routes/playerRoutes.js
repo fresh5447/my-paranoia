@@ -41,7 +41,7 @@ router.route('/')
 
      } else{
        console.log("New Agent named " + player + "created!");
-       res.redirect('/profile');
+       res.render('profile.ejs', {player: player, user: req.user});
        
      }
    });

@@ -1,0 +1,42 @@
+var targetsRandomized = function(players){
+	var result = players;
+	console.log(players);
+	
+	for (var i = 0; i < players.length; i++) {
+		var randomPlayer = remaining[(Math.floor(Math.random()*players.length))];
+		targets.push(randomPlayer);
+		remaining.splice(i, 1);
+	};
+
+	
+
+	for (var i = 0; i < players.length; i++) {
+		result.push(Math.floor(Math.random()*players.length));
+	};
+	return result;
+};
+
+
+players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
+targets = [];
+
+var randomizer = function(array) {
+	var copy = array.slice();
+	var tempArray = [];
+	targetArray = []
+	
+	for (var i = 0; i < copy.length; i++) {
+		tempArray.push(i);	
+	};
+	
+	for (var j = 0; j < tempArray.length; j++) {
+		var randomIndex = Math.floor(Math.random()*tempArray.length);
+		var otherIndex = tempArray[randomIndex]
+		tempArray[randomIndex] = copy[randomIndex]
+		targetArray = tempArray[otherIndex];
+		tempArray.slice[randomIndex, 1];
+		copy.splice(randomIndex, 1);
+	}
+	
+	return targetArray;
+};
