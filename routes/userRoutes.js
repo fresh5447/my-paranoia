@@ -27,7 +27,8 @@ module.exports = function(app, passport) {
     // COMPLETE PROFILE SECTION =========================
     app.get('/completeProfile', isLoggedIn, function(req, res) {
         res.render('completeProfile.ejs', {
-            user : req.user
+            user : req.user,
+            
         });
     });
     app.get('/createGame', isLoggedIn, function(req, res) {

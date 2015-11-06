@@ -44,4 +44,5 @@ var targetsRandomized = function(players){
 };
 
 module.exports = router;
+module.exports.targetsRandomized = targetsRandomized;
 

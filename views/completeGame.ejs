@@ -39,16 +39,16 @@
 
 					</div>
 
-
+				<div class="row tablerow">
 					<% if (game.players) {
 					game.players.forEach(function(player, index) { %>
 					<div class="row">
 					<button class="col-xs-1 remove-button" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
-						X
+						<span class="glyphicon glyphicon-remove"></span>
 					</button>
 
 				<div class="col-xs-2">
-					<%= player %> 	
+					<%= player %>
 				</div>
 
 				<div class="col-xs-8">
@@ -58,12 +58,15 @@
 				</div>
 					<%})}%>
 				</div>
+				</div>
 			</div >
-			<form action=<%= "/api/targetRoutes/" + game._id %> method="POST"> 
+			<div class="col-xs-12 container">
+			<form action=<%= "/api/targetRoutes/" + game._id %> method="POST" id="startButton" > 
 			<button type="submit" title="Start Gaming" class="btn btn-danger">
 						Start Hunting
 					</button>
 			</form>
+			</div>
 
 		</div>
 	</div>

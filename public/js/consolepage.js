@@ -118,10 +118,7 @@ jQuery(document).ready(function($) {
             term.echo('');
             term.echo('');
             term.echo('');
-            term.echo('Your target is: Cobra');
-            term.echo('Game location: UM Campus');
-            term.echo('Time remaining in game: 3 days');
-            term.echo('Surviving players: 2 / 30');
+            term.echo('Type \'profile\' to view your personal page.');
 
         } else if (inLogin && savedHandle === null) {
             loginHandleCheck(); 
@@ -141,6 +138,8 @@ jQuery(document).ready(function($) {
         } else if (command == 'signup') {
             signup(term);
         } else if (command == 'login') {
+            login(term);
+        } else if (command == 'letmein') {
             login(term);
         } else {
             term.echo("unknown command " + command);

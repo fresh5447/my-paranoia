@@ -14,11 +14,11 @@
 			</div>
 	
 			<div>
-				<ul>
-					<li><h1>Your Agent Profile</h1></li>
+				
+					<h1><%= player.handle %>'s Dossier</h1>
 					
 					<strong>email</strong>: <%= user.local.email %><br>
-				</ul>	
+					
 			</div>
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 	
 			<div>
 				<ul>
-					<h1>Game Console</h1>
+					<h1><span class="glyphicon glyphicon-chevron-right"></span>Game Console</h1>
 					<li>ID</li>
 					
 					<div id="myGame">
@@ -40,26 +40,7 @@
 					<div class="container">
   <h2>Agents in the Field</h2>
   <p>agents fighting</p>                                                                                      
-  <div class="table-responsive">          
-  <table class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Agent Handle</th>
-        <th>Target</th>
-        <th>Pursuer</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>#</td>
-        <td> <%=player.handle%> </td>
-        <td>Penguinator</td>
-        <td>Cobra</td>  
-      </tr>
-    </tbody>
-  </table>
-  </div>
+  
 </div>
 					<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
 	
