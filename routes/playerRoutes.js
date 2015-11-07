@@ -30,10 +30,10 @@ router.route('/')
 
    mongoose.model('Player').create({
      handle: handle,
-     pic: pic,
      status: status,
+     deceased: deceased,
      target: target,
-     deceased: deceased
+     pic: pic
 
    }, function(err, player){
      if(err){
@@ -66,10 +66,10 @@ router.route('/')
    .put(function(req, res) {
 
             var handle = req.body.handle;
-            var pic = req.body.pic;
             var status = req.body.status;
-            var target = req.body.target;
             var deceased = req.body.deceased;
+            var target = req.body.target;
+            var pic = req.body.pic;
 
        mongoose.model('Player').findById({
            _id: req.params.id
