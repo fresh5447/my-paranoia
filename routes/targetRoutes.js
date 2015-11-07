@@ -4,18 +4,13 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
-	
 
 router.route('/:id')
 
-
   .post(function(req, res) {
-
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
-            
-
            if (err)
                res.send(err); 
            game.targets = targetsRandomized(game.players);
