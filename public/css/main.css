@@ -25,6 +25,11 @@ body {
 	text-align: center;
 }
 
+.banner {
+	text-align: center;
+	background-color: black;
+}
+
 .remove-button {
 	border-radius: 50%; 
 	height: 50px; 
