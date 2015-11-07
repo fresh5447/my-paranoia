@@ -31,7 +31,7 @@ var loginServer = function(term) {
         email: savedEmail, 
         password: savedPassword,     
     };
-    jQuery.get("/api/playerRoutes/" + data)
+    jQuery.get("/api/playerRoutes" + data)
     .done(function (data){
 
         if(data != null){

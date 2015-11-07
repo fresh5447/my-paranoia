@@ -83,8 +83,8 @@ router.route('/')
             player.email= email;
             player.password = password;
             player.status = status;
-            player.target = target;
             player.deceased = deceased;
+            player.target = target;
             player.pic = pic;
 
            player.save();
