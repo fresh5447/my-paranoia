@@ -56,20 +56,23 @@ var profile = function(term) {
     });
 }
 var rules = function(term) {
-    term.echo('Goal: Be the last agent standing. The winner gets full bragging rights within the Paranoia         ' +
-        'community!                                                                                                                                                                                               ' +
+    term.echo('                                                                                                    ' + 
+        'Goal: Be the last agent standing.                                                                                                                                                                       ' +
         'How to play: Each agent will be assigned one target to eliminate, and each agent will in turn be    ' + 
         'pursued by another player. As no one knows who else may be playing, secrecy and stealth are         '+ 
-        'paramount. To maintain a low profile, be discreet when eliminating your target. All games begin   ' + '  and end at midnight.                                                                                                                                                                                    ' +  
-        'Eliminations:  When you eliminate an agent they will give their target to you. This person is       ' + 
-        'your new target. Both players will immediately email the moderator so the leaderboard can be        ' + 
-        'updated. Follow the same proceedure if you are eliminated.                                                                                                                                              ' +
+        'paramount. (To maintain a low profile, be discreet when eliminating your target, and think twice    '+ 
+        'before casually discussing the game with others.)  All games begin and end at midnight.                                                                                                                 ' +  
+        'Eliminations:  When you eliminate an agent they will surrender their badge number to you. Enter     ' +
+        'this number on your profile page to confirm the deed and receive your new target.  Follow the       ' + 
+        'same proceedure if you are eliminated. (Note: Your badge number is assigned when you sign up.       ' + 
+        'It can be found on your profile page.)                                                                                                                                                                  ' +
         'Rules: No weapons of any kind are allowed. Players are eliminated by touching with fingers.         ' + 
         'To maintain your cover, all eliminations must be covert. You may not enter a dorm room uninvited.   ' + 
-        'All areas of campus are fair game except the following: classrooms, the library, a ' +
-        'player’s place   of employment, and vehicles.                                                                                                                                                                            ' +
+        'All areas of campus are fair game except the following: classrooms, the library, and a              ' +
+        'player’s place of employment.                                                                                                                                                                           ' +
         'Keep in mind this is a game that rewards sneakiness and vigilance. Keep your identity concealed.    ' + 
-        'Play fair; don’t cheat. Above all, HAVE FUN!!');
+        'The winner gets full bragging rights within the Paranoia community. Play fair; don’t cheat.         ' +
+        'Above all, HAVE FUN!!');
 }
 
 var signup = function(term) {
