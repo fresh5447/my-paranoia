@@ -12,7 +12,7 @@ var sendToServer = function(term) {
         password: savedPassword, 
         handle: savedHandle
     };
-    jQuery.post("http://localhost:7000/api/playerRoutes", data)
+    jQuery.post("/api/playerRoutes", data)
     .done(function (data){
 
 
@@ -31,7 +31,7 @@ var loginServer = function(term) {
         email: savedEmail, 
         password: savedPassword,     
     };
-    jQuery.get("http://localhost:7000/api/playerRoutes/" + data)
+    jQuery.get("/api/playerRoutes/" + data)
     .done(function (data){
 
         if(data != null){

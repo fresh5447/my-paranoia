@@ -44,7 +44,7 @@ router.route('/')
 
   game.save( function(err) {
      if(err){
-       res.send("houston we have a problem")
+       res.send("Houston we have a problem")
      } else{
       console.log("New game named " + game.gameName + " created!");
       res.app.game = game;

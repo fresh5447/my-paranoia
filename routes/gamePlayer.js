@@ -83,7 +83,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
         game.targets.splice(index, 1);
    			game.save();
         console.log("This is coming from the route: we deleted " + player);
-   			res.json({ message: "We assassinated " + player})
+   			res.json({ message: "We eliminated " + player})
 
    		} else {
         console.log("player not there " + player);

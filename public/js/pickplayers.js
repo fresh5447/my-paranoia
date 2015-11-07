@@ -58,6 +58,6 @@ var playerGetter = function (gameid) {
 	);
 }
 
-var players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
+// var players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
 
 
