@@ -45,17 +45,13 @@ router.use(bodyParser.urlencoded({ extended: true }))
    
    .put(function(req, res) {
        var player = req.body.player;
-<<<<<<< HEAD
+
        
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
             
-=======
-       mongoose.model('Game').findById({
-           _id: req.params.id
-       }, function(err, game) {
->>>>>>> e85e720a8df6e1b4520cc58f68ad01d83700d763
+
         	if (err)
             	res.send(err);
             
