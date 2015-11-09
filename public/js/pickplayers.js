@@ -26,8 +26,6 @@ var deleteGuy = function(gameid, guy){
 	});
 	
 };
-
-
 var allPlayers = [];
 
 var playerGetter = function (gameid) {
@@ -56,6 +54,37 @@ var playerGetter = function (gameid) {
 		}
 	);
 }
+var deleteTarget = function(gameid, tag){
+	$.when(
+		$.getJSON("/api/playerRoutes/"),
+		$.getJSON("/api/gamePlayer/" + gameid)
+	).then(
+		function(player, playerArray){
+			var foundHandle = null;
+		  		if( player.tag === tag ) {
+				player.handle = foundHandle;
+			}else {
+				console.log("Cant find that Tag!");
+			};
+			for (var i = 0; i < playerArray.length; i++) {
+				if(foundHandle != null && playerArray[i] === foundHandle){
+					$.ajax({
+						url: "/api/gamePlayer/" + gameid,
+						type: "DELETE",
+						dataType: "json",
+						data: {'player': foundHandle},
+						success: function(result){
+							console.log('successfully defeated Agent ' + guy);
+							location.href = "/game/" + gameid;
+						}
+					});
+
+				}else{
+					console.log("couldn't accomplish mission against " + guy);
+			};
+		};		
+	});
+};
 
 // var players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
 

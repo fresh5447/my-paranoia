@@ -36,7 +36,10 @@ var targetsRandomized = function(players){
 		targets[players.indexOf(randomizedArray[i])] = newTarget;
 	};
 	return targets;
+	
 };
+
+
 
 module.exports = router;
 module.exports.targetsRandomized = targetsRandomized;

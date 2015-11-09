@@ -66,8 +66,20 @@
 					</button>
 			</form>
 			</div>
+			<form class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
+						<input type="text" class="form-control" name="tag" placeholder="Agent Tag">
+
+						<button type="submit" onClick="deleteTarget('<%=game._id%>', player.tag)" class="btn btn-warning btn-lg">Enter Tag</button>
+					</form>
+			
 
 		</div>
+		<div class="submit">
+						<span class="submit" id="basic-addon1">Start Loving</span>
+
+						<button type="submit" href="profile.ejs" class="btn btn-warning btn-lg">Start Game</button>
+					</div>
 	</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>

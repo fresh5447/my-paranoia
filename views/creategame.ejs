@@ -5,20 +5,19 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="gameMaker">
 		<form action="/api/gameRoutes" class="navbar-form" method="post" id="gameForm" role="form">
 			<legend>Create Your Game</legend>
+
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1">Name Your Game</span>
+				<input type="text" class="form-control" name="gameName" placeholder="Name your game">
+			</div>
 		
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Your Handle</span>
 				<input type="text" class="form-control" name="moderator" placeholder="">
 			</div>
-			
-			<div class="input-group">
-				<span class="input-group-addon" id="basic-addon1">Name Your Game</span>
-				<input type="text" class="form-control" name="gameName" placeholder="Name your game">
-			</div>
-
 			<div class="input-group">
 				<span class="input-group-addon" id="basic-addon1">Start Date</span>
 				<input type="text" class="form-control" name="startTime" placeholder="What day will the gamebegin?">

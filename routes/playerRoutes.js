@@ -4,6 +4,13 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
+var agentTag = function(){
+               var tag = Math.floor(Math.random()*10000);
+               return tag;
+                   };
+
+
+
 router.route('/')
 
  .get(function(req, res) {
@@ -20,15 +27,13 @@ router.route('/')
    var handle = req.body.handle;
    var email = req.body.email;
    var status = req.body.status;
-   var target = req.body.target;
-   var deceased = req.body.deceased;
+   var tag = req.body.tag;
    var pic = req.body.pic;
 
    mongoose.model('Player').create({
      handle: handle,
      status: status,
-     deceased: deceased,
-     target: target,
+     tag: agentTag(),
      pic: pic
 
    }, function(err, player){

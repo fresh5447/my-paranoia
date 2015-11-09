@@ -6,9 +6,8 @@ var playerSchema = new mongoose.Schema({
         handle: String,
         email: String,
         password: String,
+        tag: Number,
         status: Boolean,
-        deceased: Boolean,
-        target: String,
         pic: String
 
 

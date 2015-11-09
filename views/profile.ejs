@@ -8,7 +8,7 @@
 <body>
 	<div class="container box">
 		
-		<div class="row">
+		<div class="row" id="AgentPicture">
 			<div class="col-md-6">
 				<img src="<%=player.pic%>">
 			</div>
@@ -18,6 +18,7 @@
 					<h1><%= player.handle %>'s Dossier</h1>
 					
 					<strong>email</strong>: <%= user.local.email %><br>
+					<strong>Tag</strong>: <%= player.tag %><br>
 					
 			</div>
 		</div>
@@ -32,7 +33,12 @@
 			<div>
 				<ul>
 					<h1><span class="glyphicon glyphicon-chevron-right"></span>Game Console</h1>
-					<li>ID</li>
+					<form class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
+						<input type="text" class="form-control" name="tag" placeholder="Agent Tag">
+
+						<button type="submit" class="btn btn-warning btn-lg">Enter Tag</button>
+					</form>
 					
 					<div id="myGame">
 
