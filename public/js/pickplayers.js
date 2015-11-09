@@ -1,3 +1,13 @@
+var grabTag = function(playTag){
+	var inputTag = document.getElementById('tagGetter').value;
+	if(playTag === inputTag) {
+		alert("succes");
+	} else {
+		alert('fail');
+	}
+	
+};
+
 
 var deleteGuy = function(gameid, guy){
 	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {

@@ -9,8 +9,6 @@ var playerSchema = new mongoose.Schema({
         tag: Number,
         status: Boolean,
         pic: String
-
-
     
 });
 

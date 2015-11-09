@@ -1,0 +1,122 @@
+body {
+	background-color: #002436;
+  /*background-image: url(matrix.jpg);*/
+
+}
+
+.mybar {
+	background-color: #6B00B3;
+} 
+
+.console {
+  margin-top: 30px;
+  width: 600px;
+  height: 100px;
+  background-color: #29293D;
+  border-radius: 3px;
+  /*box-shadow: 10px 10px 5px grey;*/
+}
+
+
+.slider {
+  background: rgba(54, 25, 25, .5);
+  /*opacity: 0.5;*/
+  color: #00FF00;
+  box-shadow: 5px;
+  /*background-image: linear-gradient(green,lightgreen);*/
+  width: 600px;
+  height: 350px;
+  border-style: outset;
+  border-color: green;
+  border-width: 4px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow-y: scroll;
+  -webkit-transition:-webkit-transform .3s ease;
+       -moz-transition:   -moz-transform .3s ease;
+        -ms-transition:    -ms-transform .3s ease;
+            transition:        transform .3s ease;
+
+}
+
+/*.slider:after{
+  content: '';
+position: absolute;
+top: 2px;
+left: 2px;
+width: calc(100% - 4px);
+height: 50%;
+}*/
+
+.slider.opened { 
+    /* visible */
+    -webkit-transform: translate(0, 0%);
+       -moz-transform: translate(0, 0%);
+        -ms-transform: translate(0, 0%);
+            transform: translate(0, 0%);
+}
+.slider.closed { 
+    /* completely offscreen */
+    display: none;
+}
+
+.glass {
+/* background styles */
+
+position: relative;
+display: inline-block;
+
+background: gray; /*for compatibility with older browsers*/
+
+/* text styles */
+text-decoration: none;
+color: #fff;
+font-size: 25px;
+font-family: sans-serif;
+font-weight: 100;
+border-radius: 3px;
+box-shadow: 0px 1px 4px -2px #333;
+text-shadow: 0px -1px #333;
+}
+
+.glass:after{
+content: '';
+position: absolute;
+top: 2px;
+left: 2px;
+width: calc(100% - 4px);
+height: 50%;
+background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
+
+.glass:hover{
+background: linear-gradient(#073,#0fa);
+}
+
+.chatLight {
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  top: 0px;
+}
+
+.login {
+  opacity: 0;
+}
+
+.pulley {
+  background-color: #ccc;
+  width: 600px;
+  height: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-style: inset;
+  border-top-width: 2px;
+  border-top-color: black;
+}
+
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+}

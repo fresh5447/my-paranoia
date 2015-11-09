@@ -31,6 +31,7 @@ router.route('/')
    var pic = req.body.pic;
 
    mongoose.model('Player').create({
+    email: email,
      handle: handle,
      status: status,
      tag: agentTag(),
@@ -42,7 +43,8 @@ router.route('/')
 
      } else{
        console.log("New Agent named " + player + "created!");
-       res.render('profile.ejs', {player: player, user: req.user});
+       return res.redirect('/profile')
+       res.send({player: req.player, user: req.user});
        
      }
    });
@@ -70,6 +72,7 @@ router.route('/')
             var target = req.body.target;
             var pic = req.body.pic;
 
+
        mongoose.model('Player').findById({
            _id: req.params.id
        }, function(err, player) {          
@@ -81,7 +84,7 @@ router.route('/')
             player.password = password;
             player.status = status;
             player.deceased = deceased;
-            player.target = target;
+            player.tag = agentTag();
             player.pic = pic;
 
            player.save();

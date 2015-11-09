@@ -12,11 +12,13 @@ module.exports = function(app, passport) {
     });
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
+
        
        mongoose.model('Player').find({email: req.user.local.email}, function(err, player){
             if(err){
                 console.log(err);
             }
+            console.log(player, "so pplayer")
             res.render('profile.ejs', {
                 user : req.user,
                 player : player
@@ -28,17 +30,19 @@ module.exports = function(app, passport) {
     app.get('/completeProfile', isLoggedIn, function(req, res) {
         res.render('completeProfile.ejs', {
             user : req.user,
-            
         });
     });
+
+
     app.get('/createGame', isLoggedIn, function(req, res) {
         res.render('createGame.ejs', {
             user : req.user
         });
     });
     app.get('/completeGame', isLoggedIn, function(req, res) {
-        res.render('completeGame.ejs', {
+        res.render('gameProfile.ejs', {
             user : req.user,
+            player: player
         });
     });
 
