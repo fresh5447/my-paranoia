@@ -30,7 +30,6 @@ var deleteGuy = function(gameid, guy){
 
 var allPlayers = [];
 
-
 var playerGetter = function (gameid) {
 
 	var list = document.getElementById("players");

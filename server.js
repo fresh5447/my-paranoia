@@ -23,8 +23,6 @@ var gamePlayer = require('./routes/gamePlayer');
 var targetRoutes = require('./routes/targetRoutes');
 
 
-
-
 // mongoose.connect('mongodb://localhost/paranoiaPlayerdb');
 mongoose.connect('mongodb://localhost/paranoiaGamedb');
 
@@ -58,11 +56,6 @@ app.use('/api/gameRoutes', gameRoutes);
 app.use('/api/gamePlayer', gamePlayer);
 
 app.use('/api/targetRoutes', targetRoutes);
-
-
-
-
-
 
 
 

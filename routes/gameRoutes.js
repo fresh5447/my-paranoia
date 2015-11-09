@@ -9,10 +9,7 @@ var homecontrol = function(req, res){
   res.render('completeGame.ejs', context);
 }
 
-
-
 var Game = require('../models/gamedb');
-
 
 // /api/gameRoutes/
 router.route('/')
@@ -30,7 +27,6 @@ router.route('/')
 
 .post(function(req, res, next){
         
-
   var game =  new Game();
     
   game.gameName = req.body.gameName;
@@ -55,11 +51,8 @@ router.route('/')
    });
  });
      
-   
-
 
  router.route('/:id')
-
 
    .get(function(req, res) {
        mongoose.model('Game').findById({
@@ -71,10 +64,8 @@ router.route('/')
            res.json(game);
        });
    })
-
    
    .put(function(req, res) {
-
         var gameName = req.body.gameName;
         var moderator=req.body.moderator;
         var startTime=req.body.startTime;
@@ -85,8 +76,6 @@ router.route('/')
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
-            
-
            if (err)
                res.send(err);
               
@@ -101,7 +90,6 @@ router.route('/')
            res.json(game);
        });
    })
-   
 
    .delete(function(req, res) {
        mongoose.model('Game').remove({

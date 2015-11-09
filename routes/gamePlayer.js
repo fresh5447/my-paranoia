@@ -5,11 +5,10 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
 
-
-
  router.route('/:id')
 
   .post(function(req, res) {
+
 
        var player = req.body.players;
        console.log(req.body);
@@ -43,16 +42,20 @@ router.use(bodyParser.urlencoded({ extended: true }))
            res.json(game.players);
        });
    })
-
    
    .put(function(req, res) {
-
        var player = req.body.player;
+<<<<<<< HEAD
        
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
             
+=======
+       mongoose.model('Game').findById({
+           _id: req.params.id
+       }, function(err, game) {
+>>>>>>> e85e720a8df6e1b4520cc58f68ad01d83700d763
         	if (err)
             	res.send(err);
             
@@ -61,7 +64,6 @@ router.use(bodyParser.urlencoded({ extended: true }))
             res.json(game.players);
        });
    })
-   
 
    .delete(function(req, res) {
    	var player = req.body.player;
@@ -70,6 +72,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
    		_id: req.params.id
    	}, function(err, game) {
    		if (err)
+        
    			res.send(err);
    		var index = game.players.indexOf(player);
    		if (index != -1){

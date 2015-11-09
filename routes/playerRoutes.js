@@ -46,7 +46,6 @@ router.route('/')
 
  router.route('/:id')
 
-
    .get(function(req, res) {
        mongoose.model('Player').findById({
            _id: req.params.id
@@ -57,7 +56,6 @@ router.route('/')
            res.json(player);
        });
    })
-
    
    .put(function(req, res) {
 
@@ -69,9 +67,7 @@ router.route('/')
 
        mongoose.model('Player').findById({
            _id: req.params.id
-       }, function(err, player) {
-            
-
+       }, function(err, player) {          
            if (err)
                res.send(err);
               
@@ -88,7 +84,6 @@ router.route('/')
        });
    })
    
-
    .delete(function(req, res) {
        mongoose.model('Player').remove({
            _id: req.params.id

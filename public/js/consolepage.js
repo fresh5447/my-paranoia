@@ -1,7 +1,6 @@
 var inSignUp = false;
 var inLogin = false;
 
-
 var savedEmail = null;
 var savedPassword = null;
 var savedHandle = null;
@@ -14,7 +13,6 @@ var sendToServer = function(term) {
     };
     jQuery.post("/api/playerRoutes", data)
     .done(function (data){
-
 
         if(data != null){
             term.echo('Success! Welcome back, Agent.');
