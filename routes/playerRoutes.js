@@ -4,11 +4,8 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
-//url/api/blogs
-// /api/playerRoutes/
 router.route('/')
 
-/* GET All Blogs */
  .get(function(req, res) {
    mongoose.model('Player').find({}, function(err, players){
      if(err){
@@ -18,7 +15,6 @@ router.route('/')
      }
    });
  })
-
 
  .post(function(req, res){
    var handle = req.body.handle;

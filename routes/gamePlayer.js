@@ -11,16 +11,13 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
   .post(function(req, res) {
 
-
        var player = req.body.players;
        console.log(req.body);
-
 
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
             
-
           if (err)
               res.send(err);
             
@@ -52,13 +49,10 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
        var player = req.body.player;
        
-
-
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
             
-
         	if (err)
             	res.send(err);
             
@@ -83,7 +77,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
         game.targets.splice(index, 1);
    			game.save();
         console.log("This is coming from the route: we deleted " + player);
-   			res.json({ message: "We eliminated " + player})
+   			res.json({ message: player + " Eliminated!"})
 
    		} else {
         console.log("player not there " + player);
