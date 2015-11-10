@@ -1,11 +1,19 @@
-var grabTag = function(playTag){
+var grabTag = function(game, playTag){
+	var arrayPlayer = game.split(',');
+	var target = playTag.split(',');
+	console.log(target);
+	console.log(arrayPlayer);
 	var inputTag = document.getElementById('tagGetter').value;
-	if(playTag === inputTag) {
-		alert("succes");
-	} else {
-		alert('fail');
+		for(var i = 0; i < arrayPlayer.length; i++) {
+			if(arrayPlayer[i] === inputTag) {
+				var index = i;
+				target.splice(arrayPlayer[index], 1);
+				alert("target terminated");
+		} else {
+			alert('fail');
+		}
 	}
-	
+	return target;
 };
 
 
