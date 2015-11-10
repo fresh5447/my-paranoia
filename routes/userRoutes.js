@@ -26,6 +26,8 @@ module.exports = function(app, passport) {
         });
     
     });
+
+    
     // COMPLETE PROFILE SECTION =========================
     app.get('/completeProfile', isLoggedIn, function(req, res) {
         res.render('completeProfile.ejs', {

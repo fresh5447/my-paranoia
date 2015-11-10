@@ -47,3 +47,8 @@ body {
 	display: inline-block;
 
 }
+nav{
+	color:red;
+	background: linear-gradient(#BBDDFF, #002800);
+
+}
