@@ -15,10 +15,10 @@
 	
 			<div>
 				
-					<h1><%= player[0].handle %>'s Dossier</h1>
+					<h1><%= user.local.handle %>'s Dossier</h1>
 					
 					<strong>email</strong>: <%= user.local.email %><br>
-					<strong>Tag:  <%= player[0].tag %> </strong> <br>
+					
 					
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
 						<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag">
 
-						<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-warning btn-lg">Enter Tag</button>
+						<button type="submit" onClick="grabTag()" class="btn btn-warning btn-lg">Enter Tag</button>
 			</div>
 
 	</div>
