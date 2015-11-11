@@ -13,10 +13,10 @@ router.route('/:id')
        }, function(err, game) {
            if (err)
                res.send(err);
-           game.targets = targetsRandomized(game.players);
+           game.targets = targetsRandomized(game._players);
            console.log(game.targets);
            game.save();
-           res.render('completeGame.ejs', {game : game});
+           res.redirect('/completeGame/' + game._id);
        });
    })
   .put(function(req, res){
@@ -26,11 +26,12 @@ router.route('/:id')
   		if(err)
   			res.send(err);
   		console.log("HELLLOOOO")
-  		game.targets = grabTag(game.players, game.targets);
+  		game.targets = grabTag(game._players, game.targets);
   		game.save();
-  		res.render('completeGame.ejs', {game: game});
+  		res.redirect('/completeGame/' + game._id);
   	});
   })
+
 
 var targetsRandomized = function(players){
 	var refCopy = players.slice();

@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
             if(err){
                 console.log(err);
             }
-            console.log(player, "so pplayer")
+            console.log(player, "so player")
             res.render('profile.ejs', {
                 user : req.user,
                 player : player
@@ -42,25 +42,22 @@ module.exports = function(app, passport) {
         });
     });
     
-
-    app.get('/completeGame', isLoggedIn, function(req, res) {
-        user : req.user,
-        (function(req, res) {
-            mongoose.model('User').find({}, function(err, users){
+    app.get('/completeGame/:id', isLoggedIn, function(req, res) {
+        var gameId = req.params.id;
+            mongoose.model('Game').findById(gameId).populate('_players').populate('targets').exec( function(err, game){
                 if(err){
                   return console.log(err);
                 } else {
-                 res.send(players)
-                }
-            });
-        })
+                mongoose.model('User').find({}, function(err, users){
+                  if(err){
+                    return console.log(err);
+                  } else {
+                   res.render('completeGame.ejs', {users: users, game:game})
+                  }
+              });
+            }
+        });
     });
-    
-
-
-    
-
-  
 
     app.get('/gameProfile', isLoggedIn, function(req, res) {
         res.render('gameProfile.ejs', {

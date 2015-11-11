@@ -3,11 +3,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
-var homecontrol = function(req, res){
-  var context =  req.game;
-  console.log("In homecontrol ", game.gameName);
-  res.render('completeGame.ejs', context);
-}
 
 var User = require('../models/user')
 var Game = require('../models/gamedb');
@@ -29,15 +24,14 @@ router.route('/')
         
   var game =  new Game();
     
-  
   game.gameName = req.body.gameName;
-  Game
-    .findOne({ gameName: game.gameName })
-    .populate('_players')
-    .exec(function (err, game) {
-      if (err) return handleError(err);
-      console.log('The creator is %s', game._players);
-    });
+  // Game
+  //   .findOne({ gameName: game.gameName })
+  //   .populate('_players')
+  //   .exec(function (err, game) {
+  //     if (err) return handleError(err);
+  //     console.log('The creator is %s', game._players);
+  //   });
 
   game.save( function(err) {
      if(err){
@@ -45,8 +39,8 @@ router.route('/')
      } else{
       console.log("New game named " + game.gameName + " created!");
       res.app.game = game;
-      
-      res.render('completeGame.ejs', {game : game});
+       res.redirect('/completeGame/'+game._id)
+     // res.render('completeGame.ejs', {game : game});
        
      }
    });

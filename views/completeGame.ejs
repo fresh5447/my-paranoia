@@ -14,8 +14,12 @@
 		</div>
 
 		<label for="players">User</label>
-		<select id="users" name="users">
-			<option>Choose a player</option>
+		<select id="user" name="user">
+
+		<option>Choose a player</option>
+			<% for(var i=0; i< users.length; i++) {%>
+			      <option value="<%= users[i]._id%>"><%= users[i].local.handle%></option> 
+			<% } %>
 		</select>	
 		<button type="submit" class="btn btn-primary">Add Player</button>
 	</form>
@@ -39,20 +43,21 @@
 					</div>
 
 				<div class="row tablerow">
-					<% if (game.players) {
-					game.players.forEach(function(player, index) { %>
+					<% if (game._players) {
+					game._players.forEach(function(player, index) { %>
 					<div class="row">
 					<button class="col-xs-1 remove-button" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
 						<span class="glyphicon glyphicon-remove"></span>
 					</button>
 
 				<div class="col-xs-2">
-					<%= player %>
+					<%= player.local.handle %>
 				</div>
 
 				<div class="col-xs-8">
-					<%= game.targets[index] %> 
-
+					<% if (game.targets[index]) { %>
+					<%= game.targets[index].local.handle %> 
+					<%}%>
 				</div>
 				</div>
 					<%})}%>
@@ -78,10 +83,9 @@
 		</div>
 
 		<form action=<%="/api/targetRoutes/" + game._id %> method="PUT">
-						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
-						<input id="tagGetter" type="text" class="form-control" name="targets" placeholder="Agent Tag">
-
-						<button type="submit" class="btn btn-warning btn-lg">Enter Tag</button>
+			<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
+			<input id="tagGetter" type="text" class="form-control" name="targets" placeholder="Agent Tag">
+			<button type="submit" class="btn btn-warning btn-lg">Enter Tag</button>
 		</form>
 	</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	

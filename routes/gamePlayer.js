@@ -9,9 +9,8 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
   .post(function(req, res) {
 
-
-       var player = req.body.players;
-       console.log(req.body);
+       var player = req.body.user;
+       console.log(player);
 
        mongoose.model('Game').findById({
            _id: req.params.id
@@ -20,15 +19,15 @@ router.use(bodyParser.urlencoded({ extended: true }))
           if (err)
               res.send(err);
             
-            game.players.push(player);
+            game._players.push(player);
             game.targets.push(null);
             game.save();
             
             console.log("New player named " + player + " added to game " + game.gameName);
             res.app.game = game;
-            // res.redirect('/completeGame');
+            res.redirect('/completeGame/' + req.params.id);
       
-      res.render('completeGame.ejs', {game : game});
+      // res.render('completeGame.ejs', {game : game});
        });
    })
 

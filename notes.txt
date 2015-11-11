@@ -1,0 +1,30 @@
+-> signin/signup
+
+-> render  'profile'
+    - click create game button
+
+-> render 'createGame'
+    - post to api/gameRoutes
+
+-> 'completeGame'
+    - select users to add to game
+    - populate game with users
+
+-> gameProfile
+
+
+trying to populate game with players via gameRoutes
+
+DB
+
+User
+    email
+    password
+    handle
+    games
+    role: [player, admin]
+
+Game
+    players: [users],
+    creator,
+    creator: user
