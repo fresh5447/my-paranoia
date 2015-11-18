@@ -12,17 +12,33 @@ module.exports = function(app, passport) {
     });
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-
-       
        mongoose.model('Player').find({email: req.user.local.email}, function(err, player){
             if(err){
                 console.log(err);
             }
-            console.log(player, "so player")
-            res.render('profile.ejs', {
-                user : req.user,
-                player : player
+            mongoose.model('Game').find({}).populate('_players').populate('targets').exec(function(err, games){
+                //console.log(player, "so player", games, req.user._id)
+                var targets = [];
+                games.forEach(function(game){
+                    //console.log(game)
+                    game._players.forEach(function(player, index){
+                        //console.log(index,'-', player._id, '-',req.user._id,'-')
+                       if(player._id.toString() == req.user._id.toString()){ 
+                        //console.log('-----',index, player._id, req.user._id)
+                        var target = game.targets[index]
+                        if(target && target.local)        
+                            targets.push({email:target.local.email, handle:target.local.handle})
+                    }     
+                    })
+                })
+                //console.log(targets)
+                res.render('profile.ejs', {
+                    user : req.user,
+                    player : player,
+                    targets:targets
+                })                
             })
+
         });
     
     });
